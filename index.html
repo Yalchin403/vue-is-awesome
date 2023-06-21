@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Vue</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      <div id="app">
+        <h1 class="title">{{ title }}</h1>
+        <div class="columns">
+          <div class="column">
+            <p class="subtitle">Author: {{ author }}</p>
+          </div>
+          <div class="column">
+            <p class="subtitle">Age: {{ age }}</p>
+            <div class="buttons">
+              <button @click="handleAgeClick('increase')" class="button is-success">Increase Age</button>
+              <button @click="handleAgeClick('decrease')" class="button is-success">Decrease Age</button>
+            </div>
+          </div>
+        </div>
+        <div class="has-text-centered">
+          <button @click="title='Down and Out in Paris and London'" class="button">Change Book Title</button>
+        </div>
+
+        <div v-if="false">
+          <p>This paragraph will not show up</p>
+        </div>
+
+        <div v-if="booksShown"> <!--booksShown is variable that comes from vue data(){}-->
+          <p>This paragraph will show up</p>
+        </div>
+
+        <button class="button is-success" @click="toggleBooksShown()">
+          <span v-if="booksShown">Hide books</span>
+          <span v-if="!booksShown">Show books</span>
+        </button>
+
+        <!-- v-show is just like above if condition but simpler -->
+        <div v-show="booksShown">
+          V-show example
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
